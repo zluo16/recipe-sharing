@@ -1,0 +1,33 @@
+<h5>USER PROFILE</h5>
+
+<h1> <%= @user.name %></h1>
+  <% if @user == current_user  %>
+    <p>
+      <%= link_to "Edit Profile", edit_user_path %>
+    </p>
+  <% end %>
+
+<h3> Account Details </h3>
+  <ul>
+    <li>
+      Email: <%= @user.email %>
+    </li>
+    <li>
+      Location: <%= @user.location %>
+    </li>
+  </ul>
+
+
+<h3> Authored Recipes </h3>
+<p>
+  This is where we will see the users' authored recipes
+</p>
+
+
+
+
+<h3> Saved Recipes </h3>
+
+<p>
+  This is where we will see the users' saved recipes
+</p>
