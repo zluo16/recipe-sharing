@@ -4,7 +4,7 @@ class RecipeIngredientsController < ApplicationController
   end
 
   def new
-    @recipe_ingredient = RecipeIngredient.new(params[:recipe_id])
+    @recipe_ingredient = RecipeIngredient.new(recipe_id: params[:recipe_id])
   end
 
   def edit
@@ -18,7 +18,8 @@ class RecipeIngredientsController < ApplicationController
   def create
     @recipe_ingredient = RecipeIngredient.new(recipe_ingredient_params)
       if @recipe_ingredient.save
-        redirect_to recipe_ingredient_path(@recipe_ingredient)
+        # binding.pry
+        redirect_to recipe_path(params[:recipe_ingredient][:recipe_id])
       else
         render :new
       end

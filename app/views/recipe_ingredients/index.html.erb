@@ -10,7 +10,6 @@
     <% @ingredients.each do |ingredient| %>
     <tr>
       <td> <%= ingredient.name %> </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td> <%= ingredient.category %> </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td> <%= ingredient.food_group %> </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td> <%= link_to "#{ingredient.name}", ingredient_path(ingredient) %> </ bbtd>
     </tr>

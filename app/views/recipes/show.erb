@@ -10,4 +10,12 @@
   <%= @recipe.instructions %>
 </p>
 
-<%= link_to 'Add Recipe-Ingredient', new_recipe_ingredient(:recipe_id => @recipe.id) %>
+<% if @recipe.ingredients.count > 0 %>
+  <ul>
+    <% @recipe.recipe_ingredients.each do |i| %>
+      <li><%= i.quantity %> - <%= i.ingredient.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Add Recipe-Ingredient', new_recipe_ingredient_path(:recipe_id => @recipe.id) %>
