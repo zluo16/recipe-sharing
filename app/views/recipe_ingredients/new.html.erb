@@ -1,0 +1,14 @@
+<h1> New Recipe Ingredient </h1>
+
+<%= form_for(@recipe_ingredient) do |t| %>
+
+
+<%= t.hidden_field :recipe_id, :value => params(:recipe_id) %><br>
+<%= f.collection_select :ingredient_id, Ingredient.order(:name), :id, :name, include_blank: false%><br>
+
+
+<!-- <%= t.text_field :category, placeholder: "Category" %><br>
+<%= t.text_field :food_group, placeholder: "Food Group" %><br> -->
+
+<%= t.submit "Create Recipe-Ingredient" %>
+<% end %>
