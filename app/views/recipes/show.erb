@@ -9,3 +9,5 @@
   <strong>Instructions: </strong>
   <%= @recipe.instructions %>
 </p>
+
+<%= link_to 'Add Recipe-Ingredient', new_recipe_ingredient(:recipe_id => @recipe.id) %>
