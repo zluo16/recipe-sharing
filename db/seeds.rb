@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user1 = User.create(name: 'Mirna', email: 'mirna.plakalovic@gmail.com')
+user2 = User.create(name: 'TestUser', email: 'test@test.com')
+receipe1 = Recipe.create(name: 'pizza', author_id: 1, prep_time: 5, cook_time: 5)
+SaverRecipe.create(saver: user2, recipe: receipe1)
