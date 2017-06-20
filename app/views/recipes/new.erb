@@ -1,0 +1,17 @@
+<h1>Create New Recipe!</h1>
+
+<%= form_for(@recipe) do |f| %>
+
+  <%= f.hidden_field :author_id, :value => 1 %>
+  <%= f.label :name, 'Name Your Recipe: ' %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :prep_time, 'Minutes to prep your recipe: ' %>
+  <%= f.number_field :prep_time %><br><br>
+  <%= f.label :cook_time, 'Minutes to cook your recipe: ' %>
+  <%= f.number_field :cook_time %><br><br>
+  <%= f.label :instructions, 'Instructions: ' %>
+  <%= f.text_area :instructions %><br><br>
+
+  <%= f.submit %>
+
+<% end %>

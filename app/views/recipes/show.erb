@@ -1,0 +1,11 @@
+<h1><%= @recipe.name %></h1>
+<h3>made by <%= @author.name %></h3>
+
+<p>prep time: <%= @recipe.prep_time %> minutes</p><br>
+<p>cook time: <%= @recipe.cook_time %> minutes</p><br>
+<p><strong>Total Time: <%= "#{@recipe.prep_time + @recipe.cook_time}" %></strong></p><br>
+
+<p>
+  <strong>Instructions: </strong>
+  <%= @recipe.instructions %>
+</p>
