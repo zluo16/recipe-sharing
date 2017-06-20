@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 20170620135512) do
 
   create_table "saver_recipes", force: :cascade do |t|
     t.bigint "saver_id"
-    t.bigint "recipe_id"
+    t.bigint "saved_recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipe_id"], name: "index_saver_recipes_on_recipe_id"
+    t.index ["saved_recipe_id"], name: "index_saver_recipes_on_saved_recipe_id"
     t.index ["saver_id"], name: "index_saver_recipes_on_saver_id"
   end
 
