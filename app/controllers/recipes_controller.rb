@@ -40,6 +40,19 @@ class RecipesController < ApplicationController
     end
   end
 
+  def search
+  end
+
+  def find
+    @searched_recipes = Recipe.select(name: params[:search])
+    name = params[:search].split(" ").join("_")
+    redirect_to found_path(name)
+  end
+
+  def found
+    name = params[:name].split("_").join(" ")
+    @searched_recipes = Recipe.where(name: name)
+  end
 
   private
 

@@ -9,4 +9,4 @@
 user1 = User.create(name: 'Mirna', email: 'mirna.plakalovic@gmail.com')
 user2 = User.create(name: 'TestUser', email: 'test@test.com')
 receipe1 = Recipe.create(name: 'pizza', author_id: 1, prep_time: 5, cook_time: 5)
-SaverRecipe.create(saver: user2, recipe: receipe1)
+Recipe.create(name: 'cookies', author_id: 2, prep_time: 2, cook_time: 15)
