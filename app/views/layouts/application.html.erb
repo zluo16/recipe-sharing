@@ -10,8 +10,7 @@
     <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" />
   </head>
 
   <body>
@@ -20,38 +19,43 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
+
     <!-- Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
       <%if logged_in?%>
         <li><a href="<%= user_path(current_user) %>">My Profile</a></li>
         <li><%= link_to "Sign Out", signout_path, method: :post%></li>
       <% else %>
-      <li class="show-on-medium-and-down"><a href="<%= new_user_path %>">Sign Up</a></li>
-      <li class="show-on-medium-and-down"><a href="<%= signin_path  %>">Sign In</a></li>
+        <li class="show-on-small"><a href="<%= new_user_path %>">Sign Up</a></li>
+        <li class="show-on-small"><a href="<%= signin_path  %>">Sign In</a></li>
       <%end%>
         <li class="divider"></li>
-        <li class="show-on-small"><a href="<%= users_path %>">All Users</a></li>
-        <li class="show-on-small"><a href="<%= recipes_path %>">All Recipes</a></li>
+        <li class="hide-on-large-only"><a href="<%= users_path %>">All Users</a></li>
+        <li class="hide-on-large-only"><a href="<%= recipes_path %>">All Recipes</a></li>
     </ul>
     <nav>
       <div class="nav-wrapper">
         <a href="<%= root_url %>" class="brand-logo left">RecipeSharingApp</a>
         <ul class="right">
-          <li class="hide-on-med-and-down"><a href="<%= users_path %>">All Users</a></li>
-          <li class="hide-on-med-and-down"><a href="<%= recipes_path %>">All Recipes</a></li>
+          <li class="hide-on-small-only"><a href="<%= users_path %>">All Users</a></li>
+          <li class="hide-on-small-only"><a href="<%= recipes_path %>">All Recipes</a></li>
+
           <%if logged_in?%>
           <!-- Dropdown Trigger -->
             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Hi, <%= current_user.name%><i class="material-icons right">arrow_drop_down</i></a></li>
           <% else %>
+            <li class="hide-on-med-and-up"><a class="dropdown-button" href="#!" data-activates="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
 
-            <li class="hide-on-small"><a href="<%= new_user_path %>">Sign Up</a></li>
-            <li class="hide-on-small"><a href="<%= signin_path  %>">Sign In</a></li>
+            <li class="hide-on-small-only"><a href="<%= new_user_path %>">Sign Up</a></li>
+            <li class="hide-on-small-only"><a href="<%= signin_path  %>">Sign In</a></li>
           <%end%>
         </ul>
       </div>
     </nav>
+    <div class="container">
+      <%= yield %>
 
-    <%= yield %>
+    </div>
 
   </body>
 </html>
