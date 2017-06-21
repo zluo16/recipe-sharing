@@ -7,14 +7,6 @@ class RecipeIngredientsController < ApplicationController
     @recipe_ingredient = RecipeIngredient.new(recipe_id: params[:recipe_id])
   end
 
-  def edit
-    @recipe_ingredient = RecipeIngredient.find(params[:id])
-  end
-
-  def show
-    @recipe_ingredient = RecipeIngredient.find(params[:id])
-  end
-
   def create
     @recipe_ingredient = RecipeIngredient.new(recipe_ingredient_params)
       if @recipe_ingredient.save
@@ -24,6 +16,16 @@ class RecipeIngredientsController < ApplicationController
         render :new
       end
   end
+
+
+  def edit
+    @recipe_ingredient = RecipeIngredient.find(params[:id])
+  end
+
+  def show
+    @recipe_ingredient = RecipeIngredient.find(params[:id])
+  end
+
 
   def update
     @recipe_ingredient = RecipeIngredient.find(params[:id])

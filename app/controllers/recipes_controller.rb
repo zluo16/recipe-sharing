@@ -25,8 +25,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     if @recipe.author == current_user
     else
-      redirect_to user_path(@user)
-      flash[:notice] = "You do not have access to edit #{@user.name}"
+      redirect_to recipe_path(@recipe)
+      flash[:notice] = "You do not have access to edit #{@recipe.author.name}'s recipe for #{@recipe.name}"
     end
   end
 
@@ -39,6 +39,7 @@ class RecipesController < ApplicationController
       render :edit
     end
   end
+
 
   private
 

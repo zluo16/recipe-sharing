@@ -60,6 +60,9 @@
       </div>
     </nav>
     <div class="container">
+      <% if flash[:notice] %>
+         <div><script>Materialize.toast('<%= flash[:notice] %>', 4000)</script></div>
+       <% end %>
       <%= yield %>
 
     </div>
