@@ -54,12 +54,11 @@
         <h4>Add Ingredient to <%=@recipe.name%></h4>
         <%= form_for(@recipe_ingredient) do |t| %>
           <%= t.hidden_field :recipe_id, value: @recipe.id %><br>
-          <%= t.collection_select :ingredient_id, Ingredient.all, :id, :name, { prompt: "Choose an ingredient" }%><br>
+          <%= t.collection_select :ingredient_id, Ingredient.order(:name), :id, :name, { prompt: "Choose an ingredient" }%><br>
 
           <%= t.number_field :quantity, placeholder: 'Quantity' %>
           <%= t.select :units, ['Cup(s)', 'Gram(s)', 'Kilogram(s)', 'Liter(s)', 'Mililiter(s)', 'Pound(s)', 'Ounce(s)', 'Pint(s)', 'Teaspoon(s)', 'Tablespoon(s)'], { prompt: "Choose a unit of measure" }%><br><br>
-
-          <%= t.submit "Add Ingredient to Recipe " %>
+          <%= t.submit "Add Ingredient to Recipe", class:'btn' %>
         <% end %>
       </div>
     </div>
