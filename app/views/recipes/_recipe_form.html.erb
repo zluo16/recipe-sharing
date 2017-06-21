@@ -2,7 +2,7 @@
 
   <%= f.hidden_field :author_id, :value => current_user.id %>
   <%= f.label :image, 'Add image of recipe' %><br>
-  <%= f.file_field :image %>
+  <%= f.file_field :image %><br><br>
   <%= f.label :name, 'Name Your Recipe: ' %>
   <%= f.text_field :name %><br><br>
   <%= f.label :prep_time, 'Minutes to prep your recipe: ' %>

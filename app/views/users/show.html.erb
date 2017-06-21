@@ -1,6 +1,8 @@
 <h5>USER PROFILE</h5>
 
-<%= image_tag @user.image.url(:medium) if @user.image? %>
+<div>
+  <%= image_tag @user.image.url(:medium) if @user.image? %>
+</div>
 
 <h1> <%= @user.name %></h1>
   <% if @user == current_user  %>
@@ -19,17 +21,25 @@
     </li>
   </ul>
 
+<div>
+  <h3> Authored Recipes </h3>
+  <% if @user.recipes.count > 0%>
+    <ul>
+      <% @user.recipes.each do |r|%>
+      <li>
+        <%= link_to r.name, recipe_path(r)%>
+      </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>
+      <%= @user.name%> has not yet  authored any recipes
+    </p>
+  <% end %>
+</div>
 
-<h3> Authored Recipes </h3>
-<p>
-  This is where we will see the users' authored recipes
-</p>
 
 
+<div>
 
-
-<h3> Saved Recipes </h3>
-
-<p>
-  This is where we will see the users' saved recipes
-</p>
+</div>
