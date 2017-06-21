@@ -1,5 +1,7 @@
 <h5>USER PROFILE</h5>
 
+<%= image_tag @user.image.url(:medium) if @user.image? %>
+
 <h1> <%= @user.name %></h1>
   <% if @user == current_user  %>
     <p>

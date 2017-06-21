@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 
 
   def update
+    # binding.pry
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user)
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :location)
+    params.require(:user).permit(:image, :name, :email, :password, :password_confirmation, :location)
   end
 
 end

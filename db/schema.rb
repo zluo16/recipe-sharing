@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620135512) do
+ActiveRecord::Schema.define(version: 20170621165632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,14 +43,18 @@ ActiveRecord::Schema.define(version: 20170620135512) do
     t.string "source"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "saver_recipes", force: :cascade do |t|
     t.bigint "saver_id"
-    t.bigint "saved_recipe_id"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["saved_recipe_id"], name: "index_saver_recipes_on_saved_recipe_id"
+    t.index ["recipe_id"], name: "index_saver_recipes_on_recipe_id"
     t.index ["saver_id"], name: "index_saver_recipes_on_saver_id"
   end
 
@@ -61,6 +65,10 @@ ActiveRecord::Schema.define(version: 20170620135512) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_foreign_key "recipe_ingredients", "ingredients"
