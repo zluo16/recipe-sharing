@@ -41,5 +41,18 @@
 
 
 <div>
-
+  <h3> Saved Recipes </h3>
+  <% if @user.saved_recipes.count > 0%>
+    <ul>
+      <% @user.saved_recipes.each do |r|%>
+      <li>
+        <%= link_to r.name, recipe_path(r)%>
+      </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>
+      <%= @user.name%> has not yet saved any recipes
+    </p>
+  <% end %>
 </div>
