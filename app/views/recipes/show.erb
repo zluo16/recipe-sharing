@@ -7,7 +7,19 @@
     <a class="btn" href="<%= edit_recipe_path(@recipe)%>">Delete Recipe</a>
   <% else %>
   <!-- THIS BUTTON IS NOT YET WORKING WORKING ON IT NOW -->
-    <%= link_to "Save Recipe", new_saver_recipe_path(saver_id: current_user.id, saved_recipe_id: @recipe.id) %>
+    <% if logged_in? %>
+      <% if current_user.saved_recipes.include?(@recipe) %>
+        <%= link_to "Unsave", saver_recipe_path(SaverRecipe.find_by(saver_id: current_user.id, saved_recipe_id: @recipe.id)), method: :delete %>
+      <% else %>
+        <%= form_for SaverRecipe.new do |f| %>
+        <%= f.hidden_field :saver_id, :value => current_user.id %>
+        <%= f.hidden_field :saved_recipe_id, :value => @recipe.id %>
+        <%= f.submit "Save Recipe"%>
+        <% end %>
+      <% end %>
+    <% else %>
+      <a class="btn" onclick="Materialize.toast('Please sign up or sign in to save this recipe.', 4000)">Save Recipe</a>
+    <% end %>
   <% end %>
 </div><br><br>
 
