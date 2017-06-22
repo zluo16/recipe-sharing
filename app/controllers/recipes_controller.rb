@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
     if @recipe.author == current_user
     else
       redirect_to recipe_path(@recipe)
-      flash[:notice] = "You do not have access to edit #{@recipe.author.name}'s recipe for #{@recipe.name}"
+      flash[:notice] = "You do not have access to edit #{@recipe.author.first_name}'s recipe for #{@recipe.name}"
     end
   end
 
