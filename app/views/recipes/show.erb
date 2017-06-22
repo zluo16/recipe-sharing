@@ -24,7 +24,11 @@
 </div><br><br>
 
 <div>
-  <%= image_tag @recipe.image.url(:medium) if @recipe.image? %>
+  <% if @recipe.image? %>
+    <%= image_tag @recipe.image.url(:medium) %>
+  <% else %>
+    <%= image_tag '/../../public/placeholders/placeholder.jpg' %>
+  <% end %>
 </div>
 
 <div>
