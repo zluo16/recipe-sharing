@@ -9,12 +9,12 @@
   <!-- THIS BUTTON IS NOT YET WORKING WORKING ON IT NOW -->
     <% if logged_in? %>
       <% if current_user.saved_recipes.include?(@recipe) %>
-        <%= link_to "Unsave", saver_recipe_path(SaverRecipe.find_by(saver_id: current_user.id, saved_recipe_id: @recipe.id)), method: :delete %>
+        <%= link_to "Unsave", saver_recipe_path(SaverRecipe.find_by(saver_id: current_user.id, saved_recipe_id: @recipe.id)), method: :delete, class:'btn' %>
       <% else %>
         <%= form_for SaverRecipe.new do |f| %>
         <%= f.hidden_field :saver_id, :value => current_user.id %>
         <%= f.hidden_field :saved_recipe_id, :value => @recipe.id %>
-        <%= f.submit "Save Recipe"%>
+        <%= f.submit "Save Recipe", class:'btn'%>
         <% end %>
       <% end %>
     <% else %>
@@ -30,6 +30,28 @@
     <%= image_tag '/../../public/placeholders/placeholder.jpg' %>
   <% end %>
 </div>
+<div>
+  <h5>Dietary Compliance</h5>
+  <% if @recipe.vegetarian == true%>
+    <p>Vegetarian</p>
+  <% end %>
+  <% if @recipe.vegan == true%>
+    <p>Vegan</p>
+  <% end %>
+  <% if @recipe.gluten_free == true%>
+    <p>Gluten-Free</p>
+  <% end %>
+  <% if @recipe.low_carb == true%>
+    <p>Low-Carb</p>
+  <% end %>
+  <% if @recipe.kosher == true%>
+    <p>Kosher</p>
+  <% end %>
+  <% if @recipe.halal == true%>
+    <p>Halal</p>
+  <% end %>
+</div>
+
 
 <div>
   <h5>Overview </h5>
@@ -58,12 +80,10 @@
         <h4>Add Ingredient to <%=@recipe.name%></h4>
         <%= form_for(@recipe_ingredient) do |t| %>
           <%= t.hidden_field :recipe_id, value: @recipe.id %><br>
-          <%= t.collection_select :ingredient_id, Ingredient.all, :id, :name, { prompt: "Choose an ingredient" }%><br>
-
-          <%= t.number_field :quantity, placeholder: 'Quantity' %>
-          <%= t.select :units, ['Cup(s)', 'Gram(s)', 'Kilogram(s)', 'Liter(s)', 'Mililiter(s)', 'Pound(s)', 'Ounce(s)', 'Pint(s)', 'Teaspoon(s)', 'Tablespoon(s)'], { prompt: "Choose a unit of measure" }%><br><br>
-
-          <%= t.submit "Add Ingredient to Recipe " %>
+          <%= t.collection_select :ingredient_id, Ingredient.order(:name), :id, :name, { prompt: "Choose an ingredient" }%><br>
+          <%= t.number_field :quantity, placeholder: 'quantity' %>
+          <%= t.select :units, ['cup(s)', 'gram(s)', 'kilogram(s)', 'liter(s)', 'mililiter(s)', 'pound(s)', 'ounce(s)', 'pint(s)', 'teaspoon(s)', 'tablespoon(s)'], { prompt: "Choose a unit of measure" }%><br><br>
+          <%= t.submit "Add Ingredient to Recipe", class:'btn' %>
         <% end %>
       </div>
     </div>

@@ -3,7 +3,7 @@
 <ul>
   <% User.all.each do |user| %>
     <li>
-      <%= link_to user.name, user_path(user)%>
+      <%= link_to user.first_name, user_path(user)%>
     </li>
   <% end %>
 </ul>

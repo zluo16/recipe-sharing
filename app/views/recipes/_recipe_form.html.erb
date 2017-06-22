@@ -12,6 +12,19 @@
   <%= f.label :instructions, 'Instructions: ' %>
   <%= f.text_area :instructions %><br><br>
 
+
+  <%= f.check_box :vegetarian, id:'vegetarian' %>
+  <%= f.label 'Vegetarian?', id: 'vegetarian', for:'vegetarian' %><br>
+  <%= f.check_box :vegan, id:'vegan' %>
+  <%= f.label 'Vegan?', id: 'vegan', for:'vegan' %><br>
+  <%= f.check_box :gluten_free, id:'gluten_free' %>
+  <%= f.label 'Gluten-Free?', id: 'gluten_free', for:'gluten_free' %><br>
+  <%= f.check_box :low_carb, id:'low_carb' %>
+  <%= f.label 'Low-Carb?', id: 'low_carb', for:'low_carb' %><br>
+  <%= f.check_box :halal, id:'halal' %>
+  <%= f.label 'Halal?', id: 'halal', for:'halal' %><br>
+  <%= f.check_box :halal, id:'kosher' %>
+  <%= f.label 'Kosher?', id: 'kosher', for:'kosher' %><br>
   <%= f.submit %>
 
 <% end %>

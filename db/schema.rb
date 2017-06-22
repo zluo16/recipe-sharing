@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621165632) do
+ActiveRecord::Schema.define(version: 20170622141741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 20170621165632) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean "published"
+    t.boolean "vegetarian"
+    t.boolean "vegan"
+    t.boolean "gluten_free"
+    t.boolean "low_carb"
+    t.boolean "kosher"
+    t.boolean "halal"
   end
 
   create_table "saver_recipes", force: :cascade do |t|
@@ -59,7 +66,7 @@ ActiveRecord::Schema.define(version: 20170621165632) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
     t.string "email"
     t.string "password_digest"
     t.string "location"
@@ -69,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170621165632) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.string "last_name"
   end
 
   add_foreign_key "recipe_ingredients", "ingredients"

@@ -36,6 +36,7 @@ gem 'mini_magick'
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'rails4-autocomplete'
 # gem 'rmagick'
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
