@@ -1,5 +1,5 @@
 <h1><%= @recipe.name %></h1>
-<h4>made by <%= @author.name %></h4>
+<h4>made by <%= @author.first_name %></h4>
 
 <div>
   <% if current_user == @recipe.author%>
