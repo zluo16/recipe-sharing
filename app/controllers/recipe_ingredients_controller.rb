@@ -10,11 +10,12 @@ class RecipeIngredientsController < ApplicationController
 
   def create
     @recipe_ingredient = RecipeIngredient.new(recipe_ingredient_params)
+    @recipe = Recipe.find_by_id(params[:recipe_ingredient][:recipe_id])
       if @recipe_ingredient.save
-        # binding.pry
         redirect_to recipe_path(params[:recipe_ingredient][:recipe_id])
       else
-        render :new
+        redirect_to recipe_path(@recipe)
+        flash[:notice] = "Recipe ingredient was not complete so did not save"
       end
   end
 
