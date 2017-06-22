@@ -11,4 +11,9 @@ class Recipe < ApplicationRecord
   validates :prep_time, presence: true
   validates :cook_time, presence: true
   validates :instructions, presence: true
+
+  def self.featured
+    Recipe.where(:created_at => 7.days.ago..Time.now).order("count()")
+  end
+
 end
