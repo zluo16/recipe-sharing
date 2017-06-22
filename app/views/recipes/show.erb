@@ -26,6 +26,28 @@
 <div>
   <%= image_tag @recipe.image.url(:medium) if @recipe.image? %>
 </div>
+<div>
+  <h5>Dietary Compliance</h5>
+  <% if @recipe.vegetarian == true%>
+    <p>Vegetarian</p>
+  <% end %>
+  <% if @recipe.vegan == true%>
+    <p>Vegan</p>
+  <% end %>
+  <% if @recipe.gluten_free == true%>
+    <p>Gluten-Free</p>
+  <% end %>
+  <% if @recipe.low_carb == true%>
+    <p>Low-Carb</p>
+  <% end %>
+  <% if @recipe.kosher == true%>
+    <p>Kosher</p>
+  <% end %>
+  <% if @recipe.halal == true%>
+    <p>Halal</p>
+  <% end %>
+</div>
+
 
 <div>
   <h5>Overview </h5>
