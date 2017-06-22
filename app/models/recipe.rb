@@ -17,14 +17,14 @@ class Recipe < ApplicationRecord
   end
 
   def self.featured
-    @weekly_recipes = Recipe.published.where(:created_at => 7.days.ago..Time.now).all
+    @weekly_recipes = Recipe.where(:created_at => 7.days.ago..Time.now).where(published: true)
     @weekly_recipes.sort_by{|r| r.savers.length}.reverse.first(10)
   end
 
   def self.top_users
-    Recipe.published.all.sort_by{|r| r.savers.length}.reverse.first(10).map do |r|
+    Recipe.published.sort_by{|r| r.savers.length}.reverse.map do |r|
       User.find(r.author_id)
-    end
+    end.uniq.first(10)
   end
 
   def self.top_recipes
@@ -32,11 +32,23 @@ class Recipe < ApplicationRecord
   end
 
   def self.fast_food
-    Recipe.published.all.sort_by{|r| r.prep_time + r.cook_time}.first(10)
+    Recipe.published.sort_by{|r| r.prep_time + r.cook_time}.first(10)
   end
 
   def self.top_vegan
-    Recipe.published.all.find_all{|r| r.vegan}.map{|r| r.name}
+    Recipe.published.find_all{|r| r.vegan}.sort_by{|r| r.savers.length}.reverse.first(10)
+  end
+
+  def self.top_low_carb
+    Recipe.published.find_all{|r| r.low_carb}.sort_by{|r| r.savers.length}.reverse.first(10)
+  end
+
+  def self.top_kosher
+    Recipe.published.find_all{|r| r.kosher}.sort_by{|r| r.savers.length}.reverse.first(10)
+  end
+
+  def self.top_halal
+    Recipe.published.find_all{|r| r.halal}.sort_by{|r| r.savers.length}.reverse.first(10)
   end
 
 end
