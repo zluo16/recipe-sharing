@@ -39,6 +39,20 @@ class RecipesController < ApplicationController
       render :edit
     end
   end
+  
+  def search
+  end
+
+  def find
+    @searched_recipes = Recipe.select(name: params[:search])
+    name = params[:search].split(" ").join("_")
+    redirect_to found_path(name)
+  end
+
+  def found
+    name = params[:name].split("_").join(" ")
+    @searched_recipes = Recipe.where(name: name)
+  end
 
   def destroy
     @recipe = Recipe.find(params[:id])
@@ -50,7 +64,6 @@ class RecipesController < ApplicationController
     redirect_to user_path(current_user)
     flash[:notice] = "Successfully deleted #{@recipe.name}"
   end
-
 
   private
 

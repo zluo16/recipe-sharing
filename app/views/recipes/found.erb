@@ -1,0 +1,9 @@
+<h1>Searched Recipes</h1>
+
+<% @searched_recipes.each do |recipe| %>
+
+  <ul>
+    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+  </ul>
+
+<% end %>

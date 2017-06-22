@@ -34,6 +34,7 @@ gem 'pry'
 gem 'carrierwave', '~> 1.1.0'
 gem 'mini_magick'
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
+gem 'rails4-autocomplete'
 # gem 'rmagick'
 gem 'jquery-rails'
 
