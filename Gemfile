@@ -35,6 +35,7 @@ gem 'carrierwave', '~> 1.1.0'
 gem 'mini_magick'
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 # gem 'rmagick'
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

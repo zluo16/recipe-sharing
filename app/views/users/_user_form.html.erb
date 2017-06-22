@@ -1,8 +1,10 @@
 <%=form_for(@user) do |f| %>
   <%= f.label :image, 'Profile Picture' %><br>
   <%= f.file_field :image %><br><br>
-  <%= f.label :name%> <br>
-  <%= f.text_field(:name, placeholder: "Name")%> <br><br>
+  <%= f.label :first_name%> <br>
+  <%= f.text_field(:first_name, placeholder: "First Name")%> <br><br>
+  <%= f.label :last_name%> <br>
+  <%= f.text_field(:last_name, placeholder: "Last Name")%> <br><br>
   <%= f.label :email%> <br>
   <%= f.text_field(:email, placeholder: "Email")%> <br><br>
   <%= f.label :password%> <br>

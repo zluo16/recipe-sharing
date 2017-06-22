@@ -4,10 +4,10 @@
   <%= image_tag @user.image.url(:medium) if @user.image? %>
 </div>
 
-<h1> <%= @user.name %></h1>
+<h1> <%= @user.first_name %></h1>
   <% if @user == current_user  %>
     <p>
-      <%= link_to "Edit Profile", edit_user_path %>
+      <%= link_to "Edit Profile", edit_user_path, class:'btn' %> <%= link_to "Add New Recipe", new_recipe_path, class:'btn' %>
     </p>
   <% end %>
 
@@ -33,7 +33,7 @@
     </ul>
   <% else %>
     <p>
-      <%= @user.name%> has not yet  authored any recipes
+      <%= @user.first_name%> has not yet  authored any recipes
     </p>
   <% end %>
 </div>
@@ -52,7 +52,7 @@
     </ul>
   <% else %>
     <p>
-      <%= @user.name%> has not yet saved any recipes
+      <%= @user.first_name%> has not yet saved any recipes
     </p>
   <% end %>
 </div>
