@@ -40,6 +40,17 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe_ingredients = RecipeIngredient.where(recipe_id: @recipe.id)
+      @recipe_ingredients.each do |i|
+        i.destroy
+      end
+    @recipe.destroy
+    redirect_to user_path(current_user)
+    flash[:notice] = "Successfully deleted #{@recipe.name}"
+  end
+
 
   private
 
