@@ -4,7 +4,18 @@
 <div>
   <% if current_user == @recipe.author%>
     <a class="btn" href="<%= edit_recipe_path(@recipe)%>">Edit</a>
-    <a class="btn" href="<%= edit_recipe_path(@recipe)%>">Delete Recipe</a>
+    <% if @recipe.published == true%>
+      <%= form_for @recipe do |f| %>
+      <%= f.hidden_field :published, :value => false %>
+      <%= f.submit "Unpublish Recipe", class:'btn'%>
+      <% end %>
+    <% else %>
+      <%= form_for @recipe do |f| %>
+      <%= f.hidden_field :published, :value => true %>
+      <%= f.submit "Publish Recipe", class:'btn'%>
+      <% end %>
+    <% end %>
+
   <% else %>
   <!-- THIS BUTTON IS NOT YET WORKING WORKING ON IT NOW -->
     <% if logged_in? %>
