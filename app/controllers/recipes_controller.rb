@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
       render :edit
     end
   end
-
+  
   def search
   end
 
@@ -52,6 +52,17 @@ class RecipesController < ApplicationController
   def found
     name = params[:name].split("_").join(" ")
     @searched_recipes = Recipe.where(name: name)
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe_ingredients = RecipeIngredient.where(recipe_id: @recipe.id)
+      @recipe_ingredients.each do |i|
+        i.destroy
+      end
+    @recipe.destroy
+    redirect_to user_path(current_user)
+    flash[:notice] = "Successfully deleted #{@recipe.name}"
   end
 
   private
