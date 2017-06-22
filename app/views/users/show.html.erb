@@ -2,16 +2,11 @@
 
 <div>
   <% if @user.image? %>
-
   <%= image_tag @user.image.url(:medium) %>
   <% else %>
-
   <div class="boxed">
-
-    <img src= "https://lh3.googleusercontent.com/H9yAIsZYqbIOh_E1ON90chVhO6SYSD6ucV-XirZXkMFDqLRjGoztobaxx1XS9CB4lfg=w300" alt="Photograph of a chocolate cupcake." style="width:180px;height:180px;">
-
+    <img src= "<%= asset_path( 'ProfileImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:180px;height:180px;">
   </div>
-
 <% end %>
 </div>
 

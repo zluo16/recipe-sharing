@@ -23,7 +23,9 @@
       <% if recipe.image? %>
       <%= image_tag recipe.image.url(:medium) %>
     <% else %>
-      <%= image_tag '/../../public/placeholders/placeholder.jpg' %>
+    <div class="boxed">
+      <img src= "<%= asset_path( 'RecipeImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:75px;height:75px;">
+    </div>
     <% end %><br>
     <%= link_to recipe.name, recipe_path(recipe) %></li>
   </ul>

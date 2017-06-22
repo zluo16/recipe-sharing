@@ -9,38 +9,64 @@
     <p><strong>Featured Recipes of This Week</strong></p>
     <% Recipe.featured.each do |recipe| %>
     <div class="col s3">
+        <% if recipe.image? %>
       <%= image_tag recipe.image.url(:thumb) %>
+      <% else %>
+        <div class="boxed">
+          <img src= "<%= asset_path( 'RecipeImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:40px;height:40px;">
+        </div>
+      <% end %>
       <br>
       <%= link_to recipe.name, recipe_path(recipe) %>
     </div>
     <% end %>
     <br><br>
+  </div>
 
+  <div class="row">
     <p><strong>Top Users</strong></p>
     <% Recipe.top_users.each do |user| %>
       <div class="col s3">
-        <%= image_tag user.image.url(:thumb) %>
-        <br>
+        <% if user.image? %>
+          <%= image_tag user.image.url(:thumb)  %>
+        <% else %>
+          <div class="boxed">
+            <img src= "<%= asset_path( 'ProfileImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:40px;height:40px;">
+          </div>
+        <% end %>
         <%= link_to user.first_name, user_path(user) %>
       </div>
     <% end %>
-  </div>
-  <br>
+    </div>
 
   <div class="row">
     <p><strong>Top Recipes of All Time</strong></p>
     <% Recipe.top_recipes.each do |recipe| %>
       <div class="col s3">
-        <%= image_tag recipe.image.url(:thumb) %>
+        <% if recipe.image? %>
+      <%= image_tag recipe.image.url(:thumb) %>
+      <% else %>
+        <div class="boxed">
+          <img src= "<%= asset_path( 'RecipeImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:40px;height:40px;">
+        </div>
+      <% end %>
         <br>
         <%= link_to recipe.name, recipe_path(recipe) %>
       </div>
     <% end %>
+    </div>
 
+<div class="row">
     <p><strong>Fastest Food</strong></p>
     <% Recipe.fast_food.each do |recipe| %>
       <div class="col s3">
-        <%= image_tag recipe.image.url(:thumb) %>
+        <% if recipe.image? %>
+      <%= image_tag recipe.image.url(:thumb) %>
+      <% else %>
+        <div class="boxed">
+          <img src= "<%= asset_path( 'RecipeImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:40px;height:40px;">
+        </div>
+      <% end %>
         <br>
         <%= link_to recipe.name, recipe_path(recipe) %>
       </div>
@@ -51,19 +77,31 @@
     <p><strong>Best Vegan Recipes</strong></p>
     <% Recipe.top_vegan.each do |recipe| %>
       <div class="col s3">
-        <%= image_tag recipe.image.url(:thumb) %>
+        <% if recipe.image? %>
+      <%= image_tag recipe.image.url(:thumb) %>
+      <% else %>
+        <div class="boxed">
+          <img src= "<%= asset_path( 'RecipeImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:40px;height:40px;">
+        </div>
+      <% end %>
         <br>
         <%= link_to recipe.name, recipe_path(recipe) %>
       </div>
     <% end %>
-    <br><br>
+    <br>
   </div>
 
   <div class="row">
     <p><strong>Best Low Carb Recipes</strong></p>
     <% Recipe.top_low_carb.each do |recipe| %>
     <div class="col s3">
-      <%= image_tag recipe.image.url(:thumb) %>
+      <% if recipe.image? %>
+    <%= image_tag recipe.image.url(:thumb) %>
+    <% else %>
+      <div class="boxed">
+        <img src= "<%= asset_path( 'RecipeImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:40px;height:40px;">
+      </div>
+    <% end %>
       <br>
       <%= link_to recipe.name, recipe_path(recipe) %>
     </div>
@@ -75,18 +113,31 @@
    <p><strong>Best Kosher Recipes</strong></p>
    <% Recipe.top_kosher.each do |recipe| %>
      <div class="col s3">
-       <%= image_tag recipe.image.url(:thumb) %>
+       <% if recipe.image? %>
+     <%= image_tag recipe.image.url(:thumb) %>
+     <% else %>
+       <div class="boxed">
+         <img src= "<%= asset_path( 'RecipeImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:40px;height:40px;">
+       </div>
+     <% end %>
        <br>
        <%= link_to recipe.name, recipe_path(recipe) %>
      </div>
    <% end %>
  </div>
+ <br>
 
  <div class="row">
    <p><strong>Best Halaal Recipes</strong></p>
    <% Recipe.top_halal.each do |recipe| %>
      <div class="col s3">
-       <%= image_tag recipe.image.url(:thumb) %>
+       <% if recipe.image? %>
+     <%= image_tag recipe.image.url(:thumb) %>
+     <% else %>
+       <div class="boxed">
+         <img src= "<%= asset_path( 'RecipeImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:40px;height:40px;">
+       </div>
+     <% end %>
        <br>
        <%= link_to recipe.name, recipe_path(recipe) %>
      </div>
