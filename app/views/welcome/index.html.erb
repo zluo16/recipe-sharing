@@ -28,10 +28,10 @@
            <% if user.image? %>
            <a href="<%=user_path(user) %>"><%=image_tag user.image.url(:thumb), style:"width:100px;height:100px; object-fit:cover; border-radius: 50%"%></a>
            <% else %>
-              <img src= "<%= asset_path( 'ProfileImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:100px;height:100px;">
+               <a href="<%=user_path(user) %>"><img src= "<%= asset_path( 'ProfileImageDefault.png' )%>" alt="Photograph of a chocolate cupcake." style="width:100px;height:100px;"></a>
            <% end %>
         </div>
-        <div style="margin: 10px 0 0 0;display:block; width:120px;  text-align: center;">
+        <div style="margin: 10px 0 0 0;display:block; width:100px;  text-align: center;">
          <%= link_to user.first_name, user_path(user), style:"color:black; font-size: 16px; " %>
         </div>
     </div>
