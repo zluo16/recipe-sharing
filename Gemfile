@@ -37,6 +37,7 @@ gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'rails4-autocomplete'
 # gem 'rmagick'
 gem 'jquery-rails'
+gem 'material_icons'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
