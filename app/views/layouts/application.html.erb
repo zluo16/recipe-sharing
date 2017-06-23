@@ -63,8 +63,10 @@
          <div><script>Materialize.toast('<%= flash[:notice] %>', 4000)</script></div>
        <% end %>
       <%= yield %>
-
+      <div style="display:block; height:100px; width:10px">
+      </div>
     </div>
+
 
   </body>
 </html>
