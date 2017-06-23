@@ -1,6 +1,6 @@
 <%=form_for(@user) do |f| %>
   <%= f.label :image, 'Profile Picture' %><br>
-  <%= f.file_field :image %><br><br>
+  <%= f.file_field :image  %><br><br>
   <%= f.label :first_name, 'First Name *'%> <br>
   <%= f.text_field(:first_name, placeholder: "First Name", required: true, class: 'validate')%> <br><br>
   <%= f.label :last_name%> <br>
@@ -15,5 +15,5 @@
   <%= f.label :location%> <br>
   <%= f.text_field(:location, placeholder: "City, State")%> <br><br>
 
-  <%= f.submit %>
+  <%= f.submit class: 'btn'%>
 <%end%>

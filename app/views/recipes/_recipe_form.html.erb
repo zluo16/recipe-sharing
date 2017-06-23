@@ -10,8 +10,7 @@
   <%= f.label :cook_time, 'Minutes to cook your recipe: ' %>
   <%= f.number_field :cook_time, required: true, class: 'validate' %><br><br>
   <%= f.label :instructions, 'Instructions: ' %>
-  <%= f.text_area :instructions, required: true, class: 'validate' %><br><br>
-
+  <%= f.text_area :instructions, required: true, class: 'validate', placeholder:'Please write your ingredient instructions here. You will be able to add a structured ingredients list on the following page.'%><br><br>
 
   <%= f.check_box :vegetarian, id:'vegetarian' %>
   <%= f.label 'Vegetarian?', id: 'vegetarian', for:'vegetarian' %><br>
@@ -24,7 +23,7 @@
   <%= f.check_box :halal, id:'halal' %>
   <%= f.label 'Halal?', id: 'halal', for:'halal' %><br>
   <%= f.check_box :kosher, id:'kosher' %>
-  <%= f.label 'Kosher?', id: 'kosher', for:'kosher' %><br>
-  <%= f.submit %>
+  <%= f.label 'Kosher?', id: 'kosher', for:'kosher' %><br><br>
+  <%= f.submit class: 'btn'%>
 
 <% end %>
