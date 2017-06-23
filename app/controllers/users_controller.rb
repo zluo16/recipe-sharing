@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     name = params[:search].split(" ").join("_")
     if name
       redirect_to found_user_path(name)
-    else
+    elsea
 
     end
 
