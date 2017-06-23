@@ -50,12 +50,7 @@ class UsersController < ApplicationController
   def find
     @searched_users = User.select(first_name: params[:search])
     name = params[:search].split(" ").join("_")
-    if name
-      redirect_to found_user_path(name)
-    elsea
-
-    end
-
+    redirect_to found_user_path(name)
   end
 
   def found

@@ -5,6 +5,11 @@
 </div>
 <h3><%= @recipe.name %></h3>
 <h5>made by <%= @author.first_name %></h5>
+<% if @recipe.times_saved == 1 %>
+  <h6>Saved by <%= @recipe.times_saved %> user</h6>
+<% elsif @recipe.times_saved > 1 %>
+  <h6>Saved by <%= @recipe.times_saved %> users</h6>
+<% end %>
 <div style="margin: 20px 0 0 0 ">
    <% if current_user == @recipe.author%>
    <div style="display: inline-block;">

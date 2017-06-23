@@ -12,6 +12,10 @@ class Recipe < ApplicationRecord
   validates :cook_time, presence: true
   validates :instructions, presence: true
 
+  def times_saved
+    self.savers.length
+  end
+
   def self.published
     Recipe.all.find_all{|r| r.published}
   end
