@@ -30,6 +30,7 @@
       <%if logged_in?%>
         <li><a href="<%= user_path(current_user) %>">My Profile</a></li>
         <li><%= link_to "Sign Out", signout_path, method: :post%></li>
+        <li> <%= link_to "Add Recipe", new_recipe_path %>  </li>
       <% else %>
         <li class="show-on-small"><a href="<%= new_user_path %>">Sign Up</a></li>
         <li class="show-on-small"><a href="<%= signin_path  %>">Sign In</a></li>
@@ -38,9 +39,9 @@
         <li class="hide-on-large-only"><a href="<%= users_path %>">All Users</a></li>
         <li class="hide-on-large-only"><a href="<%= recipes_path %>">All Recipes</a></li>
     </ul>
-    <nav>
+    <nav style="margin-bottom: 20px">
       <div class="nav-wrapper  yellow darken-3">
-        <a href="<%= root_url %>" class="brand-logo left">RecipeSharingApp</a>
+        <a href="<%= root_url %>" class="brand-logo left"><img src= "<%= asset_path( 'chef_hat_logo.png' )%>" alt="logo" style="width:45px;height:45px;margin:10px 0px 0px 20px"></a>
         <ul class="right">
           <li class="hide-on-small-only"><a href="<%= users_path %>">All Users</a></li>
           <li class="hide-on-small-only"><a href="<%= recipes_path %>">All Recipes</a></li>

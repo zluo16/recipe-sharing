@@ -1,21 +1,30 @@
+<div class="row">
+  <% if @recipe.image? %>
+    <%= image_tag @recipe.image.url(:medium) %>
+  <% end %>
+</div>
+
 <h1><%= @recipe.name %></h1>
 <h4>made by <%= @author.first_name %></h4>
 
 <div>
   <% if current_user == @recipe.author%>
+
+    <div>
+      <% if @recipe.published == true%>
+        <%= form_for @recipe do |f| %>
+        <%= f.hidden_field :published, :value => false %>
+        <%= f.submit "Unpublish Recipe", class:'btn'%>
+        <% end %>
+      <% else %>
+        <%= form_for @recipe do |f| %>
+        <%= f.hidden_field :published, :value => true %>
+        <%= f.submit "Publish Recipe", class:'btn'%>
+        <% end %>
+      <% end %>
+    </div>
     <%= link_to "Edit", edit_recipe_path(@recipe), class:'btn'%>
-    <% if @recipe.published == true%>
-      <%= form_for @recipe do |f| %>
-      <%= f.hidden_field :published, :value => false %>
-      <%= f.submit "Unpublish Recipe", class:'btn'%>
-      <% end %>
-    <% else %>
-      <%= form_for @recipe do |f| %>
-      <%= f.hidden_field :published, :value => true %>
-      <%= f.submit "Publish Recipe", class:'btn'%>
-      <% end %>
-    <% end %>
-      <a class="modal-trigger waves-effect waves-light btn" href="#delete_recipe_modal">Delete Recipe</a>
+    <a class="modal-trigger waves-effect waves-light btn" href="#delete_recipe_modal">Delete</a>
 
   <% else %>
   <!-- THIS BUTTON IS NOT YET WORKING WORKING ON IT NOW -->
@@ -35,11 +44,7 @@
   <% end %>
 </div><br><br>
 
-<div>
-  <% if @recipe.image? %>
-    <%= image_tag @recipe.image.url(:medium) %>
-  <% end %>
-</div>
+
 <div>
   <h5>Dietary Compliance</h5>
   <% if @recipe.vegetarian == true%>
