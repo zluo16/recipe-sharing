@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
       render :edit
     end
   end
-  
+
   def search
   end
 

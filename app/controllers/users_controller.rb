@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticated, except: [:new, :create, :index, :show]
+  before_action :authenticated, except: [:new, :create, :index, :show, :find, :found, :search]
 
   def index
     @users = User.all
@@ -34,7 +34,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def update
     # binding.pry
     @user = User.find(params[:id])
@@ -43,6 +42,25 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def search
+  end
+
+  def find
+    @searched_users = User.select(first_name: params[:search])
+    name = params[:search].split(" ").join("_")
+    if name
+      redirect_to found_user_path(name)
+    else
+
+    end
+
+  end
+
+  def found
+    name = params[:first_name].split("_").join(" ")
+    @searched_users = User.where(first_name: name)
   end
 
   def delete
