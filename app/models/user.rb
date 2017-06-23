@@ -5,11 +5,13 @@ class User < ApplicationRecord
   has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' }, default_url: :link_to_image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   has_secure_password
+
   validates :email, uniqueness: true
+  validates :email, presence: true
+  validates :first_name, presence: true
 
   def link_to_image
     "https://lh3.googleusercontent.com/H9yAIsZYqbIOh_E1ON90chVhO6SYSD6ucV-XirZXkMFDqLRjGoztobaxx1XS9CB4lfg=w300"
   end
-
 
 end
