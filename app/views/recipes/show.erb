@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="padding-top:20px">
   <% if @recipe.image? %>
     <%= image_tag @recipe.image.url(:medium) %>
   <% end %>
@@ -10,7 +10,7 @@
 <div>
   <% if current_user == @recipe.author%>
 
-    <div>
+    <div style="display: inline-block;">
       <% if @recipe.published == true%>
         <%= form_for @recipe do |f| %>
         <%= f.hidden_field :published, :value => false %>
@@ -45,30 +45,72 @@
 </div><br><br>
 
 
-<div>
+<div style="margin-bottom:50px">
   <h5>Dietary Compliance</h5>
   <% if @recipe.vegetarian == true%>
-    <p>Vegetarian</p>
+    <div class="col s2" style="display:block;">
+      <div style="display:inline-block;">
+        <i class="material-icons">done</i>
+      </div>
+      <div style="display:inline-block;">
+        Vegetarian
+      </div>
+    </div>
   <% end %>
   <% if @recipe.vegan == true%>
-    <p>Vegan</p>
+  <div class="col s2" style="display:block;">
+    <div style="display:inline-block;">
+      <i class="material-icons">done</i>
+    </div>
+    <div style="display:inline-block;">
+    Vegan
+  </div>
+</div>
   <% end %>
   <% if @recipe.gluten_free == true%>
-    <p>Gluten-Free</p>
+  <div class="col s2" style="display:block;">
+    <div style="display:inline-block;">
+      <i class="material-icons">done</i>
+    </div>
+    <div style="display:inline-block;">
+    Gluten-Free
+  </div>
+</div>
   <% end %>
   <% if @recipe.low_carb == true%>
-    <p>Low-Carb</p>
+  <div class="col s2" style="display:block;">
+    <div style="display:inline-block;">
+      <i class="material-icons">done</i>
+    </div>
+    <div style="display:inline-block;">
+    Low-Carb
+  </div>
+</div>
   <% end %>
   <% if @recipe.kosher == true%>
-    <p>Kosher</p>
+  <div class="col s2" style="display:block;">
+    <div style="display:inline-block;">
+      <i class="material-icons">done</i>
+    </div>
+    <div style="display:inline-block;">
+    Kosher
+  </div>
+</div>
   <% end %>
   <% if @recipe.halal == true%>
-    <p>Halal</p>
+  <div class="col s2" style="display:block;">
+    <div style="display:inline-block;">
+      <i class="material-icons">done</i>
+    </div>
+    <div style="display:inline-block;">
+    Halaal
+  </div>
+</div>
   <% end %>
 </div>
 
 
-<div>
+<div style="margin-bottom:50px">
   <h5>Overview </h5>
   <p>Prep Time: <%= @recipe.prep_time %> minutes</p>
   <p>Cook Time: <%= @recipe.cook_time %> minutes</p>
@@ -76,7 +118,7 @@
 </div>
 
 
-<div>
+<div style="margin-bottom:50px">
   <h5>Ingredients: </h5>
   <% if @recipe.ingredients.count > 0 %>
     <ul>
@@ -101,7 +143,7 @@
 </div>
 
 
-<div>
+<div style="margin-bottom:50px">
   <h5>Instructions: </h5>
   <%= simple_format @recipe.instructions %>
 </div><br>
