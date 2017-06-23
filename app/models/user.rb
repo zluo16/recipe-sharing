@@ -10,6 +10,10 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :first_name, presence: true
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
   def link_to_image
     "https://lh3.googleusercontent.com/H9yAIsZYqbIOh_E1ON90chVhO6SYSD6ucV-XirZXkMFDqLRjGoztobaxx1XS9CB4lfg=w300"
   end
