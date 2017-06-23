@@ -8,7 +8,7 @@
   <div class="row">
     <p><strong>Featured Recipes of This Week</strong></p>
     <% Recipe.featured.each do |recipe| %>
-    <div class="col s3">
+    <div class="col s2">
         <% if recipe.image? %>
       <%= image_tag recipe.image.url(:thumb) %>
       <% else %>
@@ -26,7 +26,7 @@
   <div class="row">
     <p><strong>Top Users</strong></p>
     <% Recipe.top_users.each do |user| %>
-      <div class="col s3">
+      <div class="col s2">
         <% if user.image? %>
           <%= image_tag user.image.url(:thumb)  %>
         <% else %>
@@ -42,7 +42,7 @@
   <div class="row">
     <p><strong>Top Recipes of All Time</strong></p>
     <% Recipe.top_recipes.each do |recipe| %>
-      <div class="col s3">
+      <div class="col s2">
         <% if recipe.image? %>
       <%= image_tag recipe.image.url(:thumb) %>
       <% else %>
