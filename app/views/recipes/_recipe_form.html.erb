@@ -4,13 +4,13 @@
   <%= f.label :image, 'Add image of recipe' %><br>
   <%= f.file_field :image %><br><br>
   <%= f.label :name, 'Name Your Recipe: ' %>
-  <%= f.text_field :name %><br><br>
+  <%= f.text_field :name, required: true, class: 'validate' %><br><br>
   <%= f.label :prep_time, 'Minutes to prep your recipe: ' %>
-  <%= f.number_field :prep_time %><br><br>
+  <%= f.number_field :prep_time, required: true, class: 'validate' %><br><br>
   <%= f.label :cook_time, 'Minutes to cook your recipe: ' %>
-  <%= f.number_field :cook_time %><br><br>
+  <%= f.number_field :cook_time, required: true, class: 'validate' %><br><br>
   <%= f.label :instructions, 'Instructions: ' %>
-  <%= f.text_area :instructions %><br><br>
+  <%= f.text_area :instructions, required: true, class: 'validate' %><br><br>
 
 
   <%= f.check_box :vegetarian, id:'vegetarian' %>
